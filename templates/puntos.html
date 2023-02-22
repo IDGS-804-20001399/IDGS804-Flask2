@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <form action="/resultado" class="form-horizontal" method="post">
+            <div class="control-group">
+                <label for="x1" class="control-label">x1</label>
+                <div class="controls">
+                    <input type="text" name="x1" class="input-xlarge" placeholder="x1">
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="y1" class="control-label">y1</label>
+                <div class="controls">
+                    <input type="text" name="y1" class="input-xlarge" placeholder="y1" >
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="x2" class="control-label">x2</label>
+                <div class="controls">
+                    <input type="text" name="x2" class="input-xlarge" placeholder="x2" >
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="y2" class="control-label">y2</label>
+                <div class="controls">
+                    <input type="text" name="y2" class="input-xlarge" placeholder="y2" >
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button class="btn btn-default btn-primary" type="submit">
+                        <i class="icon-floppy-plane icon-white"></i>Calcular
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

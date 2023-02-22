@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Lista de numeros {{ nums }}</h1>
+<h1>{{ _max }} es el mayor</h1>
+<h1>{{ _min }} es el menor</h1>
+<h1>El promedio es {{ avg }}</h1>
+
+{% for key in repetidos  %}
+    <h1>El {{ key }} se repite {{ repetidos[key] }}</h1>
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,80 @@
+{% extends 'cine-layout.html' %}
+
+{% block content %}
+
+{% if valido %}
+<div class="card mx-auto" style="width: 22rem;">
+    <h5 class="card-header">Nota de venta</h5>
+    <div class="card-body">
+        <h5 class="card-title text-center">Cinépolis</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <div>
+                <span class="fw-bold">Cliente:</span>
+                <span class="float-end">{{ nombre }}</span>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div>
+                <span class="fw-bold">No compradores:</span>
+                <span class="float-end">{{ compradores }}</span>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div>
+                <span class="fw-bold">Boletos máximos:</span>
+                <span class="float-end">{{ maximos_boletos }}</span>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div>
+                <span class="fw-bold">Boletos comprados:</span>
+                <span class="float-end">{{ boletos }}</span>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div>
+                <span class="fw-bold">Precio boleto:</span>
+                <span class="float-end">{{ "${:,.2f}".format(precio) }}</span>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div>
+                <span class="fw-bold">Subtotal:</span>
+                <span class="float-end">{{ "${:,.2f}".format(subtotal) }}</span>
+            </div>
+        </li>
+        {% if descuento > 0 %}
+        <li class="list-group-item">
+            <div>
+                <span class="fw-bold">Descuento del {{ descuento }}%:</span>
+                <span class="float-end">{{ "${:,.2f}".format(descuento_pesos) }}</span>
+            </div>
+        </li>
+        {% endif %}
+        {% if descuento_adicional > 0 %}
+        <li class="list-group-item">
+            <div>
+                <span class="fw-bold">Descuento adicional del 10%:</span>
+                <span class="float-end">{{ "${:,.2f}".format(descuento_adicional) }}</span>
+            </div>
+        </li>
+        {% endif %}
+        <li class="list-group-item fw-bold">
+            <div>
+                <span>Total</span>
+                <span class="float-end">{{ "${:,.2f}".format(total) }}</span>
+            </div>
+        </li>
+    </ul>
+</div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+    Has excedido el número máximo de {{ maximos_boletos}} boletos. Solo se permiten 7 boletos
+    por comprador
+</div>
+{% endif %}
+
+
+{% endblock %}

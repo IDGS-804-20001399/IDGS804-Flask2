@@ -1,0 +1,102 @@
+{% extends 'bootstrap-layout.html' %}
+
+{% block content %}
+<form action="/resultado" method="post">
+    <div>
+        <p class="">¿Cuanto es 2 + 2 ?</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p1" id="p1a" value="1">
+            <label class="form-check-label " for="p1a">a) 4</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p1" id="p1b" value="0">
+            <label class="form-check-label " for="p1b">b) 5</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p1" id="p1c" value="0">
+            <label class="form-check-label " for="p1c">c) 6</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p1" id="p1d" value="0">
+            <label class="form-check-label " for="p1d">d) 7</label>
+        </div>
+    </div>
+    <div>
+        <p class="">¿Cuantos champions league tiene el Real madrid?</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p2" id="p2a" value="1">
+            <label class="form-check-label " for="p2a">a) 14</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p2" id="p2b" value="0">
+            <label class="form-check-label " for="p2b">b) 5</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p2" id="p2c" value="0">
+            <label class="form-check-label " for="p2c">c) 6</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p2" id="p2d" value="0">
+            <label class="form-check-label " for="p2d">d) 7</label>
+        </div>
+    </div>
+    <div>
+        <p class="">¿Cuantos ligas tiene el Real madrid?</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p3" id="p3a" value="1">
+            <label class="form-check-label " for="p3a">a) 34</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p3" id="p3b" value="0">
+            <label class="form-check-label " for="p3b">b) 5</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p3" id="p3c" value="0">
+            <label class="form-check-label " for="p3c">c) 6</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p3" id="p3d" value="0">
+            <label class="form-check-label " for="p3d">d) 7</label>
+        </div>
+    </div>
+    <div>
+        <p class="">¿Cuantos mundiales ha ganado brazil?</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p4" id="p4a" value="1">
+            <label class="form-check-label " for="p4a">a) 5</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p4" id="p4b" value="0">
+            <label class="form-check-label " for="p4b">b) 9</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p4" id="p4c" value="0">
+            <label class="form-check-label " for="p4c">c) 6</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p4" id="p4d" value="0">
+            <label class="form-check-label " for="p4d">d) 7</label>
+        </div>
+    </div>
+    <div>
+        <p class="">¿Cuantos mundiales ha ganado Argentina?</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p5" id="p5a" value="1">
+            <label class="form-check-label " for="p5a">a) 3</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p5" id="p5b" value="0">
+            <label class="form-check-label " for="p5b">b) 9</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p5" id="p5c" value="0">
+            <label class="form-check-label " for="p5c">c) 6</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="p5" id="p5d" value="0">
+            <label class="form-check-label " for="p5d">d) 7</label>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Enviar">
+</form>
+{% endblock %}

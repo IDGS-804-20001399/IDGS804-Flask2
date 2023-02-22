@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% from '_macros.html' import render_input   %}
+
+<form action="/cajasDinamicas"
+      class="form-horizontal"
+      name="form1"
+      method="post">
+    <input type="hidden"
+           name="csrf_token"
+           value="{{ csrf_token() }}">
+    {{ render_input('num', 'num', 'number') }}
+
+
+
+    <div class="control-group">
+        <div class="controls">
+            <button class="btn btn-default btn-primary"
+                    type="submit">
+                <i class="icon-book icon-white"></i>
+                Crear
+            </button>
+        </div>
+    </div>
+</form>
+
+{% if n %}
+<form action="/res-cajas"
+      method="post"
+      class="form-horizontal">
+    <input type="hidden"
+           name="csrf_token"
+           value="{{ csrf_token() }}">
+    <input type="hidden"
+           name="num"
+           value="{{ n }}">
+    {% for i in range(n) %}
+    {% set placeholder = "numero " ~ (i + 1) %}
+    {{ render_input(i, placeholder, 'number') }}
+    {% endfor %}
+
+    <div class="control-group">
+        <div class="controls">
+            <button class="btn btn-default btn-primary"
+                    type="submit">
+                <i class="icon-book icon-white"></i>
+                Enviar
+            </button>
+        </div>
+    </div>
+</form>
+{% endif %}
+
+{% endblock content %}
