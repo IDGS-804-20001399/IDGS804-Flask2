@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import forms
 from flask_wtf.csrf import CSRFProtect
 
@@ -15,12 +15,37 @@ def formprueba():
 def alumnos():
     reg_alum = forms.UserForm(request.form)
     datos = list()
-    if request.method == 'POST':
+    if request.method == 'POST' and reg_alum.validate():
         datos.append(reg_alum.matricula.data)
         datos.append(reg_alum.nombre.data)
         print(reg_alum.matricula.data)
         print(reg_alum.nombre.data)
     return render_template("alumnos.html", form=reg_alum, datos = datos)
+
+@app.route("/traductor", methods=['GET', 'POST'])
+def traductor():
+    form = forms.TraductorForm(request.form)
+    form1 = forms.BuscarForm(request.form)
+    if request.method == 'POST' and form.validate():
+        espanol = form.espanol.data.lower()
+        ingles = form.ingles.data.lower()
+        f = open("traductor.txt", "a")
+        f.write(f"{espanol},{ingles}\n")
+        f.close()
+        return redirect(url_for('traductor'))
+    elif request.method == 'POST' and form1.validate():
+        idioma = int(form1.idioma.data)
+        palabra = form1.palabra.data.lower()
+        f = open("traductor.txt", "r")
+        palabras = f.readlines()
+        f.close()
+        palabra_traducida = "La palabra no está registrada"
+        for p in palabras:
+            if palabra in p:
+                palabra_traducida = p.split(',')[idioma]
+                break
+        return render_template("traductor.html", form=form, form1 = form1, traduccion = palabra_traducida)
+    return render_template("traductor.html", form=form, form1 = form1)
 
 @app.route("/cajasDinamicas", methods=['GET', 'POST'])
 def cajasDinamicas():

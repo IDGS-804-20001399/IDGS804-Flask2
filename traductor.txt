@@ -1,0 +1,5 @@
+azul,blue
+rojo,red
+verde,green
+rosa,pink
+oso,bear

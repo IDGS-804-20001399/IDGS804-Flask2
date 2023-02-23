@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% from '_macros.html' import render_field %}
+
+<div class="col-xs-6">
+   <form action=""
+         method="post"
+         novalidate>
+      {{ form.cscf_token }}
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      {{ render_field(form.espanol) }}
+      {{ render_field(form.ingles) }}
+      <input type="submit"
+             value="Guardar">
+   </form>
+</div>
+<div class="col-xs-6">
+   <form action=""
+         method="post"
+         novalidate>
+      {{ form1.cscf_token }}
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      {{ render_field(form1.idioma) }}
+      {{ render_field(form1.palabra) }}
+      <input type="submit"
+             value="Buscar">
+   </form>
+</div>
+<div class="col-xs-6">
+    <h1>Traducción: {{ traduccion }}</h1>
+</div>
+
+{% endblock %}
