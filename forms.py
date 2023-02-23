@@ -1,6 +1,6 @@
 from wtforms import Form
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, FieldList, FormField, SelectField, RadioField
+from wtforms import StringField, SubmitField, FieldList, FormField, SelectField, RadioField, PasswordField
 from wtforms import validators
 
 from wtforms.fields import EmailField
@@ -39,3 +39,15 @@ class BuscarForm(Form):
         validators.DataRequired(message="El campo es requerido"),
     ])
     idioma =  RadioField('Idioma', choices=[(1,'ingles'),(0,'español')]) 
+
+class LoginForm(Form):
+    username = StringField('usuario',
+    [validators.DataRequired(message="El campo Usuario es requerido"),
+    validators.length(min=5, max=10, message="Ingresa min 5 max 10")
+    ]
+    )
+    password = PasswordField('Contraseña',
+    [validators.DataRequired(message="El campo Contraseña es requerido"),
+    validators.length(min=5, max=10, message="Ingresa min 5 max 10")
+    ]
+    )

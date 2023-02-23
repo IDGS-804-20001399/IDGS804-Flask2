@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, make_response, flash
 import forms
 from flask_wtf.csrf import CSRFProtect
 
@@ -21,6 +21,19 @@ def alumnos():
         print(reg_alum.matricula.data)
         print(reg_alum.nombre.data)
     return render_template("alumnos.html", form=reg_alum, datos = datos)
+
+@app.route("/cookie", methods=['GET', 'POST'])
+def cookie():
+    reg_user = forms.LoginForm(request.form)
+    response = make_response(render_template('cookies.html', form = reg_user))
+    if request.method == 'POST' and reg_user.validate():
+        user = reg_user.username.data
+        password = reg_user.password.data
+        datos = f'{user}@{password}'
+        succes_message = f"Bienvenido {user}"
+        response.set_cookie("datos_usuario", datos)
+        flash(succes_message)
+    return response
 
 @app.route("/traductor", methods=['GET', 'POST'])
 def traductor():
