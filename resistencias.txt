@@ -1,0 +1,4 @@
+Blanco,Gris,Negro,Dorado
+Naranja,Azul,Amarillo,Plata
+Negro,Negro,Negro,Plata
+Violeta,Verde,Rojo,Dorado

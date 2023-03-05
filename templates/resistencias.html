@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+
+
+{% block content %}
+
+{% from '_macros.html' import render_field %}
+{% from '_macros.html' import render_resistencia %}
+
+<div class="col-xs-6">
+   <br>
+   <br>
+   <br>
+   <form action=""
+         method="post"
+         novalidate>
+      {{ form.cscf_token }}
+      <input type="hidden"
+             name="csrf_token"
+             value="{{ csrf_token() }}">
+      {{ render_field(form.banda1) }}
+      {{ render_field(form.banda2) }}
+      {{ render_field(form.banda3) }}
+      {{ render_field(form.tolerancia) }}
+      <input type="submit"
+             value="Calcular">
+   </form>
+   <form method="post">
+      {{ form.cscf_token }}
+      <input type="hidden"
+             name="csrf_token"
+             value="{{ csrf_token() }}">
+      <input type="hidden" name="historial" value="1">
+      <input type="submit"
+             value="Ver historial">
+   </form>
+</div>
+
+{% if resistencias %}
+<table>
+   <tr>
+      <th>Banda 1</th>
+      <th>Banda 2</th>
+      <th>Banda 3</th>
+      <th>Tolerancia</th>
+      <th>Valor</th>
+      <th>Minimo</th>
+      <th>Maximo</th>
+   </tr>
+   {% for resistencia in resistencias %}
+      {{ render_resistencia(resistencia) }}
+   {% endfor %}
+</table>
+{% endif %}
+
+
+{% endblock %}

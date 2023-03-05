@@ -29,3 +29,15 @@
   </ul>
   {% endif %}
 {% endmacro %}
+
+{% macro render_resistencia(resistencia) %}
+  <tr>
+    <td class="{{ resistencia['color1'] }}">{{ resistencia['color1'] }}</td>
+    <td class="{{ resistencia['color2'] }}">{{ resistencia['color2'] }}</td>
+    <td class="{{ resistencia['color3'] }}">{{ resistencia['color3'] }}</td>
+    <td class="{{ resistencia['colort'] }}">{{ resistencia['colort'] }}</td>
+    <td>{{ resistencia['valor'] }}</td>
+    <td>{{ resistencia['min'] }}</td>
+    <td>{{ resistencia['max'] }}</td>
+  </tr>
+{% endmacro %}
